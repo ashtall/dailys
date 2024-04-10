@@ -1,0 +1,44 @@
+---
+
+---
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <script src="../scripts/websiteHandler.js"></script>
+    <title>Dailys</title>
+  </head>
+  <body class="bg-[#453ddb]">
+    <div class="bg-[#ffff00] flex flex-row">
+      <h1 class="font-bold text-[50px] ml-3 italic">Dailys</h1>
+      <h6 class="self-end pb-[1px] pl-[7px] italic"><p>by Ash</p></h6>
+    </div>
+    <div class="bg-black w-full h-1"></div>
+    <div
+      class="flex flex-col justify-center items-center text-center gap-2 pt-[10%]"
+      id="WebsiteList"
+    >
+      <div
+        class="w-[40%] h-10 bg-indigo-900 rounded-lg flex items-center border-[2px] shadow-md border-black draggable"
+        draggable="true"
+      >
+        <p class="text-center w-full text-gray-200">Wordle</p>
+      </div>
+      <div
+        class="w-[40%] h-10 bg-indigo-900 rounded-lg flex items-center border-[2px] shadow-xl border-black draggable"
+        draggable="true"
+      >
+        <p class="text-center w-full text-gray-200">Travle</p>
+      </div>
+      <div
+        class="w-[40%] h-10 bg-indigo-900 rounded-lg flex items-center border-[2px] shadow-xl border-black draggable"
+        draggable="true"
+      >
+        <p class="text-center w-full text-gray-200">Globle</p>
+      </div>
+    </div>
+  </body>
+</html>
