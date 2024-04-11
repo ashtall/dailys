@@ -12,32 +12,79 @@
     <title>Dailys</title>
   </head>
   <body class="bg-[#453ddb]">
-    <div class="bg-[#ffff00] flex flex-row">
-      <h1 class="font-bold text-[50px] ml-3 italic">Dailys</h1>
-      <h6 class="self-end pb-[1px] pl-[7px] italic"><p>by Ash</p></h6>
+    <div class="w-full h-full absolute">
+      <div class="bg-[#ffff00] flex flex-row w-full">
+        <h1 class="font-bold text-[50px] ml-3 italic">Dailys</h1>
+        <h6 class="self-end pb-[1px] pl-[7px] italic"><p>by Ash</p></h6>
+      </div>
+      <div class="bg-black w-full h-1"></div>
+      <div
+        class="flex flex-col justify-center items-center text-center gap-2 pt-[10%]"
+        id="WebsiteList"
+      >
+        <div
+          class="w-[40%] h-10 bg-indigo-900 rounded-lg flex items-center border-[2px] shadow-md border-black draggable"
+          draggable="true"
+        >
+          <p class="text-center w-full text-gray-200">Wordle</p>
+        </div>
+        <div
+          class="w-[40%] h-10 bg-indigo-900 rounded-lg flex items-center border-[2px] shadow-xl border-black draggable"
+          draggable="true"
+        >
+          <p class="text-center w-full text-gray-200">Travle</p>
+        </div>
+        <div
+          class="w-[40%] h-10 bg-indigo-900 rounded-lg relative border-[2px] shadow-xl border-black draggable"
+          draggable="true"
+        >
+          <div
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+          >
+            <p class="text-center text-gray-200">Globle</p>
+          </div>
+          <div class="absolute top-1/2 right-0 -translate-y-1/2 flex items-center">
+            <div class="relative right-2">
+              <button
+              type="button"
+              class="rounded-full bg-cover bg-center border-none cursor-pointer flex items-center"
+            >
+            <img class="w-6 h-6 "src="/trash3red.svg" alt="delete"></img>
+            </button>
+            <div
+              class="h-9 w-9 rounded-full opacity-0 hover:opacity-20 bg-gray-400 absolute top-1/2 -translate-y-1/2 -translate-x-1.5"
+            >
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="bg-black w-full h-1"></div>
+
     <div
-      class="flex flex-col justify-center items-center text-center gap-2 pt-[10%]"
-      id="WebsiteList"
+      class="w-[60%] h-[30%] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-indigo-950 absolute rounded-xl border-2 border-black
+    flex flex-col items-center hidden" id="addWebsite"
     >
-      <div
-        class="w-[40%] h-10 bg-indigo-900 rounded-lg flex items-center border-[2px] shadow-md border-black draggable"
-        draggable="true"
+      <p
+        class="text-white text-center text-4xl text-border-1 text-border-black py-2 bg-indigo-900 w-full rounded-xl"
       >
-        <p class="text-center w-full text-gray-200">Wordle</p>
-      </div>
-      <div
-        class="w-[40%] h-10 bg-indigo-900 rounded-lg flex items-center border-[2px] shadow-xl border-black draggable"
-        draggable="true"
-      >
-        <p class="text-center w-full text-gray-200">Travle</p>
-      </div>
-      <div
-        class="w-[40%] h-10 bg-indigo-900 rounded-lg flex items-center border-[2px] shadow-xl border-black draggable"
-        draggable="true"
-      >
-        <p class="text-center w-full text-gray-200">Globle</p>
+        Add Website
+      </p>
+      <div class="flex flex-col justify-center w-[50%] pt-4">
+        <!-- <p class="text-white text-md">Name</p> -->
+        <div class="p-2"></div>
+        <input
+          type="text"
+          class="rounded-sm bg-indigo-500 h-7 placeholder:text-white placeholder:pl-1 border-none border-0"
+          placeholder="Enter name"
+        />
+        <!-- <p class="text-white text-md pt-3">Website</p> -->
+        <div class="p-3"></div>
+        <input
+          type="text"
+          class="rounded-sm bg-indigo-500 h-7 placeholder:text-white placeholder:pl-1 border-none border-0"
+          placeholder="Enter website"
+        />
       </div>
     </div>
   </body>
