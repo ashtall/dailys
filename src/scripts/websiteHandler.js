@@ -5,6 +5,9 @@ function sleep(ms) {
 let draggables = document.querySelectorAll(".draggable");
 const websiteListContainer = document.querySelector("#WebsiteList");
 
+const nameInput = document.querySelector('#nameInput')
+const websiteInput = document.querySelector("#websiteInput")
+
 draggables.forEach((draggable) => {
     addEventListenerToDraggables(draggable);
 });
@@ -78,8 +81,8 @@ function setAddToEnd(){
 }
 
 const addButton = document.querySelector(".addButton")
-addButton.addEventListener('click',addWebsite)
-async function addWebsite(){
+addButton.addEventListener('click',popUpAddWebsite)
+async function popUpAddWebsite(){
     const addWebsitePopUp = document.querySelector('#addWebsite')
     const blur = document.querySelector("#blur")
     addWebsitePopUp.classList.remove("hidden")
@@ -87,7 +90,23 @@ async function addWebsite(){
     await sleep(300)
     addWebsitePopUp.classList.remove("opacity-0")
     addWebsitePopUp.classList.add("opacity-100")
+
+    nameInput.focus()
+    nameInput.value = ""
+    websiteInput.value = ""
 }
+
+nameInput.addEventListener("keydown",function(e){
+    if(e.key=="Enter"){
+        websiteInput.focus()
+    }
+})
+
+websiteInput.addEventListener("keydown",function(e){
+    if(e.key == "Enter"){
+        getWebsiteInput()
+    }
+})
 
 const addWebsiteClose = document.getElementById('addWebsiteClose')
 addWebsiteClose.addEventListener('click',closeAddWebsite)
@@ -113,8 +132,12 @@ function deleteWebsite(){
 const allButtons = document.querySelectorAll('.butt')
 
 allButtons.forEach((butt)=>{
+    addButtonListener(butt)
+})
+
+function addButtonListener(butt){
     const bg = butt.querySelector('.button-bg')
-    const button = butt.querySelector('button')
+    const button = butt.querySelector('.button')
 
     button.addEventListener('mouseenter',()=>{
         bg.classList.remove('opacity-0')
@@ -124,4 +147,47 @@ allButtons.forEach((butt)=>{
         bg.classList.add('opacity-0')
         bg.classList.remove('opacity-20')
     })
-})
+}
+
+const template = document.querySelector(".template")
+
+const doneButton = document.querySelector(".done")
+doneButton.addEventListener('click',getWebsiteInput)
+
+function getWebsiteInput(){
+    const name = nameInput.value
+    const website = websiteInput.value
+
+    // need to do
+    // check if website is valid
+    fetch(website)
+    .then(response => {
+        if (response.ok) {
+        console.log('Link is valid!');
+        } else {
+        console.log('Link is not valid!');
+        return
+        }
+    })
+    .catch(error => {
+        console.error('Error checking link:', error);
+    });
+
+    addWebsite(name,website)
+    closeAddWebsite()
+}
+
+function addWebsite(name,website){
+    const newWebsite = template.cloneNode(true)
+    const nameDiv = newWebsite.querySelector(".name")
+    const websiteDiv = newWebsite.querySelector(".website")
+    newWebsite.classList.remove("hidden","template")
+    nameDiv.textContent = name
+    websiteDiv.onclick = function(){
+        window.open(website,"_blank")
+    }
+    websiteListContainer.appendChild(newWebsite)
+    addEventListenerToDraggables(newWebsite)
+    addButtonListener(newWebsite)
+    setAddToEnd()
+}

@@ -23,15 +23,17 @@
         id="WebsiteList"
       >
         <div
-          class="w-[40%] h-10 max-w-[400px] bg-indigo-900 rounded-lg relative border-[2px] shadow-xl border-black hidden"
+          class="w-[40%] h-10 max-w-[400px] bg-indigo-900 rounded-lg relative border-[2px] shadow-xl border-black draggable hidden template"
           draggable="true"
         >
-          <div
-            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+          <button
+            type="button"
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full website"
+            onclick="window.open('https://globle-game.com/','_blank')"
           >
-            <p class="text-center text-gray-200">Globle</p>
-          </div>
-          <div class="absolute top-1/2 -translate-y-1/2 flex items-center right-2 trash opacity-0 transition-opacity duration-300 ease-in-out" >
+            <p class="text-center text-gray-200 name">Globle</p>
+          </button>
+          <div class="absolute top-1/2 -translate-y-1/2 flex items-center right-2 trash opacity-0 transition-all duration-100 ease-in-out hover:scale-[.95] scale-[.85]">
             <div class="relative cursor-pointer butt">
               <button
               type="button"
@@ -50,12 +52,14 @@
           class="w-[40%] h-10 max-w-[400px] bg-indigo-900 rounded-lg relative border-[2px] shadow-xl border-black draggable"
           draggable="true"
         >
-          <div
-            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+          <button
+            type="button"
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full website"
+            onclick="window.open('https://globle-game.com/','_blank')"
           >
-            <p class="text-center text-gray-200">Globle</p>
-          </div>
-          <div class="absolute top-1/2 -translate-y-1/2 flex items-center right-2 trash opacity-0 transition-opacity duration-300 ease-in-out hover:scale-[1.1]" >
+            <p class="text-center text-gray-200 name">Globle</p>
+          </button>
+          <div class="absolute top-1/2 -translate-y-1/2 flex items-center right-2 trash opacity-0 transition-all duration-100 ease-in-out hover:scale-[.95] scale-[.85]" >
             <div class="relative cursor-pointer butt">
               <button
               type="button"
@@ -70,54 +74,7 @@
             </div>
           </div>
         </div>
-        <div
-          class="w-[40%] h-10 max-w-[400px] bg-indigo-900 rounded-lg relative border-[2px] shadow-xl border-black draggable"
-          draggable="true"
-        >
-          <div
-            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-          >
-            <p class="text-center text-gray-200">Travle</p>
-          </div>
-          <div class="absolute top-1/2 -translate-y-1/2 flex items-center right-2 trash opacity-0 transition-opacity duration-300 ease-in-out hover:scale-[1.1]" >
-            <div class="relative cursor-pointer butt">
-              <button
-              type="button"
-              class="rounded-full bg-cover bg-center border-none cursor-pointer flex items-center button" 
-            >
-            <img class="w-6 h-6 "src="/trash3white.svg" alt="delete"></img>
-            </button>
-            <div
-              class="h-9 w-9 rounded-full opacity-0 hover:opacity-20 bg-gray-400 absolute top-1/2 -translate-y-1/2 -translate-x-1.5 -z-10 button-bg"
-            >
-            </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="w-[40%] h-10 max-w-[400px] bg-indigo-900 rounded-lg relative border-[2px] shadow-xl border-black draggable"
-          draggable="true"
-        >
-          <div
-            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-          >
-            <p class="text-center text-gray-200">Wordle</p>
-          </div>
-          <div class="absolute top-1/2 -translate-y-1/2 flex items-center right-2 trash opacity-0 transition-all duration-300 ease-in-out hover:scale-[1.1]" >
-            <div class="relative cursor-pointer butt">
-              <button
-              type="button"
-              class="rounded-full bg-cover bg-center border-none cursor-pointer flex items-center delete button"
-              >
-                <img class="w-6 h-6 "src="/trash3white.svg" alt="delete"></img>
-              </button>
-              <div
-              class="h-9 w-9 rounded-full opacity-0 bg-gray-400 absolute top-1/2 -translate-y-1/2 -translate-x-1.5 -z-10 button-bg"
-              >
-              </div>
-            </div>
-          </div>
-        </div>
+        
         <button
           type="button"
           class="w-[40%] h-10 max-w-[400px] relative cursor-pointer addButton"
@@ -134,15 +91,15 @@
 
     <div
       class="w-[50%] h-[35%] max-w-[400px] max-h-[250px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-indigo-950 absolute rounded-xl border-4 border-black
-    flex flex-col items-center opacity-0 transition-opacity duration-[500ms] ease-in-out hidden " id="addWebsite"
+    flex flex-col items-center opacity-0 transition-all duration-[500ms] ease-in-out hidden" id="addWebsite"
     >
-    <div class="bg-indigo-900 w-full rounded-xl relative">
+    <div class="bg-indigo-900 w-full rounded-t-xl relative">
       <p
         class="text-white text-center text-4xl py-2 "
       >
         Add Website
       </p>
-      <div class="absolute top-1/2 -translate-y-1/2 flex items-center right-2 opacity-100 transition-all duration-300 ease-in-out hover:scale-[1.1] cursor-pointer" >
+      <div class="absolute top-1/2 -translate-y-1/2 flex items-center right-3 opacity-100 transition-all duration-300 ease-in-out hover:scale-[1.1] cursor-pointer" >
         <div class="relative cursor-pointer butt">
           <button
           type="button"
@@ -158,27 +115,26 @@
         </div>
       </div>
     </div>
-    <div class="flex flex-col w-[80%] max-w-[200px] absolute top-[40%]">
-      <!-- <p class="text-white text-md">Name</p> -->
-      <!-- <div class=""></div> -->
+    <div class="flex flex-col w-[80%] max-w-[200px] absolute top-[40%] items-center">
       <input
         type="text"
-        class="rounded-sm bg-indigo-500 h-7 placeholder:text-white outline-none text-white pl-1 font-medium"
+        class="rounded-md bg-indigo-500 h-7 placeholder:text-white outline-none text-white pl-2 font-medium"
         id="nameInput"
         placeholder="Enter name"
         autofocus="true"
         spellcheck="false"
         maxlength="20"
       />
-      <!-- <p class="text-white text-md pt-3">Website</p> -->
-      <!-- <div class=""></div> -->
       <input
         type="text"
-        class="rounded-sm bg-indigo-500 h-7 placeholder:text-white outline-none pl-1 text-white font-medium mt-5"
+        class="rounded-md bg-indigo-500 h-7 placeholder:text-white outline-none pl-2 text-white font-medium mt-5"
         id="websiteInput"
         placeholder="Enter website"
         spellcheck="false"
       />
+      <button type="button" class="rounded-md w-20 h-8 bg-[#6366F1] mt-4 hover:border-white hover:border-[2px] hover:scale-[1.1] transition-all duration-300 ease-in-out done">
+        <p class="text-white font-medium">Done</p>
+      </button>
     </div>
     </div>
   </body>
