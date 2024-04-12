@@ -4,9 +4,12 @@ function sleep(ms) {
 
 let draggables = document.querySelectorAll(".draggable");
 const websiteListContainer = document.querySelector("#WebsiteList");
-
 const nameInput = document.querySelector('#nameInput')
 const websiteInput = document.querySelector("#websiteInput")
+const template = document.querySelector(".template")
+const addWebsitePopUp = document.querySelector('#addWebsite')
+
+addButtonListener(addWebsitePopUp.querySelector(".butt"))
 
 draggables.forEach((draggable) => {
     addEventListenerToDraggables(draggable);
@@ -17,31 +20,43 @@ let isDragging = false
 function addEventListenerToDraggables(draggable) {
     draggable.addEventListener("dragstart", () => {
         draggable.classList.add("opacity-50", "dragging");
-        draggable.querySelector(".trash").classList.add("hidden")
+        draggable.querySelectorAll(".trash").forEach((button)=>{button.classList.add("hidden")})
         isDragging = true
     });
 
     draggable.addEventListener("dragend", () => {
         draggable.classList.remove("opacity-50", "dragging");
-        draggable.querySelector(".trash").classList.remove("hidden")
+        draggable.querySelectorAll(".trash").forEach((button)=>{button.classList.remove("hidden")})
         isDragging = false
     });
 
     draggable.addEventListener("mouseenter", () => {
-        let trash = draggable.querySelector(".trash");
+        let trash = draggable.querySelectorAll(".trash");
         if (!isDragging){
-            trash.classList.remove("opacity-0")
-            trash.classList.add("opacity-100");
+            trash.forEach((button)=>{
+                button.classList.remove("opacity-0")
+                button.classList.add("opacity-100");
+            })
         }
     });
 
     draggable.addEventListener("mouseleave", () => {
-        let trash = draggable.querySelector(".trash");
+        let trash = draggable.querySelectorAll(".trash");
         if(!isDragging){
-            trash.classList.remove("opacity-100");
-            trash.classList.add("opacity-0");
+            trash.forEach((button)=>{
+                button.classList.remove("opacity-100");
+                button.classList.add("opacity-0");
+            })
         }
     });
+
+    draggable.querySelector(".delete").addEventListener('click',(e)=>{deleteWebsite(e)})
+
+    draggable.querySelector('.edit').addEventListener('click',(e)=>{editWebsite(e)})
+
+    draggable.querySelectorAll(".butt").forEach((button)=>{
+        addButtonListener(button)
+    })
 }
 
 websiteListContainer.addEventListener("dragover", (e) => {
@@ -81,9 +96,9 @@ function setAddToEnd(){
 }
 
 const addButton = document.querySelector(".addButton")
-addButton.addEventListener('click',popUpAddWebsite)
-async function popUpAddWebsite(){
-    const addWebsitePopUp = document.querySelector('#addWebsite')
+addButton.addEventListener('click',()=>{popUpAddWebsite(1)})
+
+async function popUpAddWebsite(popUp,draggable){
     const blur = document.querySelector("#blur")
     addWebsitePopUp.classList.remove("hidden")
     blur.classList.add("blur-sm")
@@ -91,9 +106,21 @@ async function popUpAddWebsite(){
     addWebsitePopUp.classList.remove("opacity-0")
     addWebsitePopUp.classList.add("opacity-100")
 
-    nameInput.focus()
-    nameInput.value = ""
-    websiteInput.value = ""
+    if(popUp == 1){
+        // Add website
+        addWebsitePopUp.querySelector(".popUpTitle").textContent = "Add Website"
+        nameInput.focus()
+        nameInput.value = ""
+        websiteInput.value = ""
+        addWebsitePopUp.querySelector(".done").id = 'add'
+    }
+    if(popUp == 2){
+        // Edit website
+        addWebsitePopUp.querySelector(".popUpTitle").textContent = "Edit Website"
+        nameInput.value = draggable.querySelector('.name').textContent
+        websiteInput.value = draggable.querySelector(".website").id
+        addWebsitePopUp.querySelector(".done").id = "edit"
+    }
 }
 
 nameInput.addEventListener("keydown",function(e){
@@ -120,20 +147,16 @@ function closeAddWebsite(){
     addWebsitePopUp.classList.remove("opacity-100")
 }
 
-const deleteButtons = document.querySelectorAll(".delete")
-deleteButtons.forEach((button)=>{
-    button.addEventListener('click',deleteWebsite)
-})
 
-function deleteWebsite(){
-
+function setDeleteButton(button){
+    button.addEventListener('click',(e)=>{
+        deleteWebsite(e)
+    })
 }
 
-const allButtons = document.querySelectorAll('.butt')
-
-allButtons.forEach((butt)=>{
-    addButtonListener(butt)
-})
+function deleteWebsite(e){
+    e.target.closest(".draggable").remove()
+}
 
 function addButtonListener(butt){
     const bg = butt.querySelector('.button-bg')
@@ -149,31 +172,18 @@ function addButtonListener(butt){
     })
 }
 
-const template = document.querySelector(".template")
-
 const doneButton = document.querySelector(".done")
 doneButton.addEventListener('click',getWebsiteInput)
 
 function getWebsiteInput(){
     const name = nameInput.value
     const website = websiteInput.value
-
-    // need to do
-    // check if website is valid
-    fetch(website)
-    .then(response => {
-        if (response.ok) {
-        console.log('Link is valid!');
-        } else {
-        console.log('Link is not valid!');
-        return
-        }
-    })
-    .catch(error => {
-        console.error('Error checking link:', error);
-    });
-
-    addWebsite(name,website)
+    switch(addWebsitePopUp.querySelector(".done").id){
+        case "add":
+            addWebsite(name,website)
+        case "edit":
+            
+    }
     closeAddWebsite()
 }
 
@@ -181,13 +191,19 @@ function addWebsite(name,website){
     const newWebsite = template.cloneNode(true)
     const nameDiv = newWebsite.querySelector(".name")
     const websiteDiv = newWebsite.querySelector(".website")
+
     newWebsite.classList.remove("hidden","template")
     nameDiv.textContent = name
     websiteDiv.onclick = function(){
         window.open(website,"_blank")
     }
+    websiteDiv.id = website
     websiteListContainer.appendChild(newWebsite)
     addEventListenerToDraggables(newWebsite)
-    addButtonListener(newWebsite)
     setAddToEnd()
+}
+
+function editWebsite(e){
+    const addWebsitePopUp = document.querySelector('#addWebsite')
+    popUpAddWebsite(2,e.target.closest('.draggable'))
 }
