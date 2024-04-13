@@ -52,7 +52,7 @@ function addEventListenerToDraggables(draggable) {
 
     draggable.querySelector(".delete").addEventListener('click',(e)=>{deleteWebsite(e)})
 
-    draggable.querySelector('.edit').addEventListener('click',(e)=>{editWebsite(e)})
+    draggable.querySelector('.edit').addEventListener('click',(e)=>{popUpAddWebsite(2,e.target.closest('.draggable'))})
 
     draggable.querySelectorAll(".butt").forEach((button)=>{
         addButtonListener(button)
@@ -117,9 +117,11 @@ async function popUpAddWebsite(popUp,draggable){
     if(popUp == 2){
         // Edit website
         addWebsitePopUp.querySelector(".popUpTitle").textContent = "Edit Website"
+        nameInput.focus()
         nameInput.value = draggable.querySelector('.name').textContent
         websiteInput.value = draggable.querySelector(".website").id
         addWebsitePopUp.querySelector(".done").id = "edit"
+        addWebsitePopUp.querySelector('.component').id = draggable.id
     }
 }
 
@@ -178,12 +180,16 @@ doneButton.addEventListener('click',getWebsiteInput)
 function getWebsiteInput(){
     const name = nameInput.value
     const website = websiteInput.value
-    switch(addWebsitePopUp.querySelector(".done").id){
+    const doneButton = addWebsitePopUp.querySelector(".done")
+    switch(doneButton.id){
         case "add":
             addWebsite(name,website)
+            break
         case "edit":
-            
+            editWebsite(name,website,doneButton)
+            break
     }
+    console.log("done")
     closeAddWebsite()
 }
 
@@ -193,6 +199,7 @@ function addWebsite(name,website){
     const websiteDiv = newWebsite.querySelector(".website")
 
     newWebsite.classList.remove("hidden","template")
+    newWebsite.id = Date.now()
     nameDiv.textContent = name
     websiteDiv.onclick = function(){
         window.open(website,"_blank")
@@ -203,7 +210,18 @@ function addWebsite(name,website){
     setAddToEnd()
 }
 
-function editWebsite(e){
-    const addWebsitePopUp = document.querySelector('#addWebsite')
-    popUpAddWebsite(2,e.target.closest('.draggable'))
+function editWebsite(name,website,doneButton){
+    const draggableID = doneButton.querySelector(".component").id
+    console.log(typeof ("#" + draggableID))
+    const draggable = document.querySelector("[id='"+draggableID+"']")
+    console.log(draggable)
+    const nameDiv = draggable.querySelector(".name")
+    const websiteDiv = draggable.querySelector(".website")
+
+    draggable.id = Date.now()
+    nameDiv.textContent = name
+    websiteDiv.onclick = function(){
+        window.open(website,"_blank")
+    }
+    websiteDiv.id = website
 }
