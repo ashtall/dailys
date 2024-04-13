@@ -225,3 +225,19 @@ function editWebsite(name,website,doneButton){
     }
     websiteDiv.id = website
 }
+
+// const openAllButton = document.querySelector('.openAll')
+// openAllButton.addEventListener('click',openAll)
+
+// function openAll(){
+//     const draggables = websiteListContainer.querySelectorAll('.draggable:not(.template)')
+//     console.log(draggables)
+//     let websites = []
+//     draggables.forEach((draggable)=>{
+//         const website = draggable.querySelector(".website").id
+//         websites.push(website)
+//     })
+//     for (var i = 0; i < websites.length; i++) {
+//         window.open(websites[i], '_wnd' + i);
+//     }
+// }
