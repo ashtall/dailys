@@ -3,7 +3,7 @@
 - [x] add website
 - [x] edit website
 - [x] delete website
-- [ ] open all websites
+- [ ] navbar
 - [ ] footer
 - [ ] website icon
 - [ ] save data

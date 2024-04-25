@@ -1,0 +1,254 @@
+---
+
+---
+
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <script src="../scripts/websiteHandler.js"></script>
+        <title>Dailys</title>
+    </head>
+    <body class="bg-[#453DDB]">
+        <div class="w-full h-full absolute transition-all duration-300 ease-in-out" id="blur">
+        <div class="bg-[#ffff00] flex flex-row w-full">
+            <h1 class="font-bold text-[50px] ml-3 italic">Dailys</h1>
+            <h6 class="self-end pb-[1px] pl-[7px] italic"><p>by [ash]</p></h6>
+        </div>
+        <div class="bg-black w-full h-1"></div>
+        <!-- <div class="flex w-full justify-center items-center h-[30%] mt-5">
+            <button type="button" class="border-black border-[3px] rounded-lg bg-indigo-900 w-[80%] h-[100%] openAll">
+            <p class="text-white text-6xl">Open All</p>
+            </button>
+        </div> -->
+        <div class="flex flex-row w-full justify-center items-center h-[80%] mt-5 rounded-lg">
+            <div class="mr-5 buttons scale-100 hover:scale-125 transition-transform duration-100">
+            <button class="w-20 mr-1 button bg-cover bg-center border-none cursor-pointer">
+                <img src="/chevron-left.svg" alt="left">
+            </button>
+            <div class="absolute w-20 h-20 -translate-y-[5.4rem] rounded-full bg-gray-400 opacity-0 -z-10 button-bg"></div>
+            </div>
+            <iframe src="https://www.nytimes.com/games/wordle/index.html" width="80%" height="100%" class=rounded-lg"></iframe>
+            <div class="ml-5 buttons scale-100 hover:scale-125 transition-transform duration-100">
+            <button class="w-20 ml-1 button bg-cover bg-center border-none cursor-pointer">
+                <img src="/chevron-right.svg" alt="right">
+            </button>
+            <div class="absolute w-20 h-20 -translate-y-[5.4rem] rounded-full bg-gray-400 opacity-0 -z-10 button-bg"></div>
+            </div>
+            
+        </div>
+        <div class="w-full h-[5px] bg-black mt-[6%] mb-[6%]"></div>
+        <div
+            class="flex flex-col justify-center items-center text-center gap-2 pt-[5%]"
+            id="WebsiteList"
+        >
+        <p class="text-white font-bold text-4xl">List</p>
+        <div class="bg-black w-[40%] h-[2px] max-w-[425px] min-w-[300px] my-4"></div>
+            <div
+            class="w-[40%] h-10 max-w-[400px] min-w-[300px] bg-indigo-900 rounded-lg relative border-[2px] shadow-xl border-black draggable hidden template"
+            draggable="true"
+            id="0"
+            >
+            <button
+                type="button"
+                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full website"
+                onclick="window.open('https://globle-game.com/','_blank')"
+                id='https://globle-game.com/'
+            >
+                <p class="text-center text-gray-200 name">Globle</p>
+            </button>
+            <div class="absolute top-1/2 -translate-y-1/2 flex items-center right-2 trash opacity-0 transition-all duration-100 ease-in-out hover:scale-[.95] scale-[.85]">
+                <div class="relative cursor-pointer butt">
+                <button
+                type="button"
+                class="rounded-full bg-cover bg-center border-none cursor-pointer flex items-center button delete"
+                >
+                    <img class="w-6 h-6 "src="/trash3white.svg" alt="Delete"></img>
+                </button>
+                <div
+                    class="h-9 w-9 rounded-full opacity-0 bg-gray-400 absolute top-1/2 -translate-y-1/2 -translate-x-1.5 -z-10 button-bg"
+                >
+                </div>
+                </div>
+            </div>
+            <div class="absolute top-1/2 -translate-y-1/2 flex items-center right-10 trash opacity-0 transition-all duration-100 ease-in-out hover:scale-[.95] scale-[.85]" >
+                <div class="relative cursor-pointer butt">
+                <button
+                type="button"
+                class="rounded-full bg-cover bg-center border-none cursor-pointer flex items-center button edit"
+                >
+                    <img class="w-6 h-6 "src="/edit.svg" alt="Edit"></img>
+                </button>
+                <div
+                class="h-9 w-9 rounded-full opacity-0 bg-gray-400 absolute top-1/2 -translate-y-1/2 -translate-x-1.5 -z-10 button-bg"
+                >
+                </div>
+                </div>
+            </div>
+            </div>
+            <div
+            class="w-[40%] h-10 max-w-[400px] min-w-[300px] bg-indigo-900 rounded-lg relative border-[2px] shadow-xl border-black draggable"
+            draggable="true"
+            id="1"
+            >
+            <button
+                type="button"
+                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full website"
+                onclick="window.open('https://globle-game.com/','_blank')"
+                id='https://globle-game.com/'
+            >
+                <p class="text-center text-gray-200 name">Globle</p>
+            </button>
+            <div class="absolute top-1/2 -translate-y-1/2 flex items-center right-2 trash opacity-0 transition-all duration-100 ease-in-out hover:scale-[.95] scale-[.85]" >
+                <div class="relative cursor-pointer butt">
+                <button
+                type="button"
+                class="rounded-full bg-cover bg-center border-none cursor-pointer flex items-center button delete"
+                >
+                    <img class="w-6 h-6 "src="/trash3white.svg" alt="Delete"></img>
+                </button>
+                <div
+                class="h-9 w-9 rounded-full opacity-0 bg-gray-400 absolute top-1/2 -translate-y-1/2 -translate-x-1.5 -z-10 button-bg"
+                >
+                </div>
+                </div>
+            </div>
+            <div class="absolute top-1/2 -translate-y-1/2 flex items-center right-10 trash opacity-0 transition-all duration-100 ease-in-out hover:scale-[.95] scale-[.85]" >
+                <div class="relative cursor-pointer butt">
+                <button
+                type="button"
+                class="rounded-full bg-cover bg-center border-none cursor-pointer flex items-center button edit"
+                >
+                    <img class="w-6 h-6 "src="/edit.svg" alt="Edit"></img>
+                </button>
+                <div
+                class="h-9 w-9 rounded-full opacity-0 bg-gray-400 absolute top-1/2 -translate-y-1/2 -translate-x-1.5 -z-10 button-bg"
+                >
+                </div>
+                </div>
+            </div>
+            <div class="absolute top-1/2 -translate-y-1/2 flex items-center right-[4.5rem] trash opacity-0 transition-all duration-100 ease-in-out hover:scale-[.95] scale-[.85]" >
+                <div class="relative cursor-pointer butt">
+                <button
+                type="button"
+                class="rounded-full bg-cover bg-center border-none cursor-pointer flex items-center button link"
+                >
+                    <img class="w-6 h-6 "src="/link-out.svg" alt="Link"></img>
+                </button>
+                <div
+                class="h-9 w-9 rounded-full opacity-0 bg-gray-400 absolute top-1/2 -translate-y-1/2 -translate-x-1.5 -z-10 button-bg"
+                >
+                </div>
+                </div>
+            </div>
+            </div>
+            <div
+            class="w-[40%] h-10 max-w-[400px] min-w-[300px] bg-indigo-900 rounded-lg relative border-[2px] shadow-xl border-black draggable"
+            draggable="true"
+            id="1"
+            >
+            <button
+                type="button"
+                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full website"
+                onclick="window.open('https://www.nytimes.com/games/wordle/index.html','_blank')"
+                id='https://www.nytimes.com/games/wordle/index.html'
+            >
+                <p class="text-center text-gray-200 name">Wrodle</p>
+            </button>
+            <div class="absolute top-1/2 -translate-y-1/2 flex items-center right-2 trash opacity-0 transition-all duration-100 ease-in-out hover:scale-[.95] scale-[.85]" >
+                <div class="relative cursor-pointer butt">
+                <button
+                type="button"
+                class="rounded-full bg-cover bg-center border-none cursor-pointer flex items-center button delete"
+                >
+                    <img class="w-6 h-6 "src="/trash3white.svg" alt="Delete"></img>
+                </button>
+                <div
+                class="h-9 w-9 rounded-full opacity-0 bg-gray-400 absolute top-1/2 -translate-y-1/2 -translate-x-1.5 -z-10 button-bg"
+                >
+                </div>
+                </div>
+            </div>
+            <div class="absolute top-1/2 -translate-y-1/2 flex items-center right-10 trash opacity-0 transition-all duration-100 ease-in-out hover:scale-[.95] scale-[.85]" >
+                <div class="relative cursor-pointer butt">
+                <button
+                type="button"
+                class="rounded-full bg-cover bg-center border-none cursor-pointer flex items-center button edit"
+                >
+                    <img class="w-6 h-6 "src="/edit.svg" alt="Edit"></img>
+                </button>
+                <div
+                class="h-9 w-9 rounded-full opacity-0 bg-gray-400 absolute top-1/2 -translate-y-1/2 -translate-x-1.5 -z-10 button-bg"
+                >
+                </div>
+                </div>
+            </div>
+            </div>
+            <button
+            type="button"
+            class="w-[40%] h-10 max-w-[400px] min-w-[300px] relative cursor-pointer addButton"
+            >
+            <div class="w-full h-full bg-[#645de1] transition-opacity duration-300 ease-in-out border-white border-[2px] rounded-lg opacity-0 hover:opacity-100"></div>
+            <div
+                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+            >
+                <img src="plus-circle.svg" alt="Add" class="w-6 h-6">
+            </div>
+            </button>
+        </div>
+        
+        <div class="w-full h-[60%] bg-black opacity-0"></div>
+        </div>
+        <div
+        class="w-[50%] h-[35%] max-w-[400px] max-h-[250px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-indigo-950 absolute rounded-xl border-4 border-black
+        flex flex-col items-center opacity-0 transition-all duration-[500ms] ease-in-out hidden" id="addWebsite"
+        >
+        <div class="bg-indigo-900 w-full rounded-t-xl relative">
+        <p
+            class="text-white text-center text-4xl py-2 popUpTitle"
+        >
+            Add Website
+        </p>
+        <div class="absolute top-1/2 -translate-y-1/2 flex items-center right-3 opacity-100 transition-all duration-300 ease-in-out hover:scale-[1.1] cursor-pointer" >
+            <div class="relative cursor-pointer butt">
+            <button
+            type="button"
+            class="rounded-full bg-cover bg-center border-none cursor-pointer flex items-center button"
+            id="addWebsiteClose"
+            >
+                <img class="w-6 h-6"src="/x.svg" alt="Close"></img>
+            </button>
+            <div
+            class="h-9 w-9 rounded-full opacity-0 bg-gray-400 absolute top-1/2 -translate-y-1/2 -translate-x-1.5 -z-10 button-bg"
+            >
+            </div>
+            </div>
+        </div>
+        </div>
+        <div class="flex flex-col w-[80%] max-w-[200px] absolute top-[40%] items-center">
+        <input
+            type="text"
+            class="rounded-md bg-indigo-500 h-7 placeholder:text-white outline-none text-white pl-2 font-medium"
+            id="nameInput"
+            placeholder="Enter name"
+            autofocus="true"
+            spellcheck="false"
+            maxlength="20"
+        />
+        <input
+            type="text"
+            class="rounded-md bg-indigo-500 h-7 placeholder:text-white outline-none pl-2 text-white font-medium mt-5"
+            id="websiteInput"
+            placeholder="Enter website"
+            spellcheck="false"
+        />
+        <button type="button" class="rounded-md w-20 h-8 bg-[#6366F1] mt-4 hover:border-white hover:border-[2px] hover:scale-[1.1] transition-all duration-300 ease-in-out done">
+            <p class="text-white font-medium component" id="">Done</p>
+        </button>
+        </div>
+        </div>
+    </div>
+  </body>
+</html>

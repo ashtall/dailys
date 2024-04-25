@@ -21,6 +21,7 @@
   "devDependencies": {
     "@types/dragula": "^3.7.4",
     "prettier": "^3.2.5",
-    "prettier-plugin-astro": "^0.13.0"
+    "prettier-plugin-astro": "^0.13.0",
+    "tailwind-scrollbar": "^3.1.0"
   }
 }

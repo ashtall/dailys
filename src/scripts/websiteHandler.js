@@ -15,6 +15,10 @@ draggables.forEach((draggable) => {
     addEventListenerToDraggables(draggable);
 });
 
+document.querySelectorAll('.buttons').forEach((button)=>{
+    addButtonListener(button)
+})
+
 let isDragging = false
 
 function addEventListenerToDraggables(draggable) {
@@ -58,6 +62,7 @@ function addEventListenerToDraggables(draggable) {
         addButtonListener(button)
     })
 }
+
 
 websiteListContainer.addEventListener("dragover", (e) => {
     e.preventDefault();
