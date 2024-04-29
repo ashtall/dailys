@@ -8,11 +8,13 @@
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
-        <script src="../scripts/websiteHandler.js"></script>
+        <!-- <script src="../scripts/websiteHandler.js"></script> -->
+        <script src="../scripts/main.js"></script>
         <title>Dailys</title>
     </head>
-    <body class="bg-black w-[100%] h-screen grid grid-cols-2 grid-rows-auto-grid-rows overflow-hidden">
-      <div class="bg-yellow w-[100%] flex flex-row col-span-2">
+
+    <body class="bg-black w-[100%] h-screen grid grid-rows-auto-grid-rows grid-cols-auto-grid-cols overflow-hidden">
+      <div class="bg-yellow w-[100%] flex flex-row col-span-3">
         <h1 class="font-bold sm:text-[50px] text-[25px] ml-3 italic">Dailys</h1>
         <h6 class="self-end pb-[2px] pl-[7px] italic"><p>by [ash]</p></h6>
       </div>
@@ -22,127 +24,12 @@
         <img class="w-8 h-8" src="/list.svg" alt="list">
       </button>
 
-      <div class="bg-true-black w-[100%] h-[5px] col-span-2"></div>
-      
-      <div class="flex flex-row">
-        <div class="w-[40%] max-w-[300px] h-full bg-purple flex flex-col">
+      <div class="bg-true-black w-[100%] h-[5px] col-span-3"></div>
+      <div class="col-span-3 flex flex-row">
+        <div class="w-[40%] max-w-[300px] h-full bg-purple flex flex-col" id="navbar-bg">
           <h2 class="text-center text-white text-2xl py-2">List</h2>
           <div class="bg-true-black w-full h-[5px]"></div>
-          <div class="flex flex-col items-center text-center gap-2 pt-[10%] h-full overflow-y-scroll" id="WebsiteList">
-            <div>
-              <button class="scale-100 hover:scale-125 transition-transform duration-100">
-                <div class="w-8 h-8 rounded-full -translate-x-1 -translate-y-1 bg-white opacity-0 hover:opacity-20 absolute"></div>
-                <img class="w-6 h-6" src="/plus-circle.svg" alt="Add">
-              </button>
-            </div>
-            <div>
-              <button class="scale-100 hover:scale-125 transition-transform duration-100">
-                <div class="w-8 h-8 rounded-full -translate-x-1 -translate-y-1 bg-white opacity-0 hover:opacity-20 absolute"></div>
-                <img class="w-6 h-6" src="/plus-circle.svg" alt="Add">
-              </button>
-            </div>
-            <div>
-              <button class="scale-100 hover:scale-125 transition-transform duration-100">
-                <div class="w-8 h-8 rounded-full -translate-x-1 -translate-y-1 bg-white opacity-0 hover:opacity-20 absolute"></div>
-                <img class="w-6 h-6" src="/plus-circle.svg" alt="Add">
-              </button>
-            </div>
-            <div>
-              <button class="scale-100 hover:scale-125 transition-transform duration-100">
-                <div class="w-8 h-8 rounded-full -translate-x-1 -translate-y-1 bg-white opacity-0 hover:opacity-20 absolute"></div>
-                <img class="w-6 h-6" src="/plus-circle.svg" alt="Add">
-              </button>
-            </div>
-            <div>
-              <button class="scale-100 hover:scale-125 transition-transform duration-100">
-                <div class="w-8 h-8 rounded-full -translate-x-1 -translate-y-1 bg-white opacity-0 hover:opacity-20 absolute"></div>
-                <img class="w-6 h-6" src="/plus-circle.svg" alt="Add">
-              </button>
-            </div>
-            <div>
-              <button class="scale-100 hover:scale-125 transition-transform duration-100">
-                <div class="w-8 h-8 rounded-full -translate-x-1 -translate-y-1 bg-white opacity-0 hover:opacity-20 absolute"></div>
-                <img class="w-6 h-6" src="/plus-circle.svg" alt="Add">
-              </button>
-            </div>
-            <div>
-              <button class="scale-100 hover:scale-125 transition-transform duration-100">
-                <div class="w-8 h-8 rounded-full -translate-x-1 -translate-y-1 bg-white opacity-0 hover:opacity-20 absolute"></div>
-                <img class="w-6 h-6" src="/plus-circle.svg" alt="Add">
-              </button>
-            </div>
-            <div>
-              <button class="scale-100 hover:scale-125 transition-transform duration-100">
-                <div class="w-8 h-8 rounded-full -translate-x-1 -translate-y-1 bg-white opacity-0 hover:opacity-20 absolute"></div>
-                <img class="w-6 h-6" src="/plus-circle.svg" alt="Add">
-              </button>
-            </div>
-            <div>
-              <button class="scale-100 hover:scale-125 transition-transform duration-100">
-                <div class="w-8 h-8 rounded-full -translate-x-1 -translate-y-1 bg-white opacity-0 hover:opacity-20 absolute"></div>
-                <img class="w-6 h-6" src="/plus-circle.svg" alt="Add">
-              </button>
-            </div>
-            <div>
-              <button class="scale-100 hover:scale-125 transition-transform duration-100">
-                <div class="w-8 h-8 rounded-full -translate-x-1 -translate-y-1 bg-white opacity-0 hover:opacity-20 absolute"></div>
-                <img class="w-6 h-6" src="/plus-circle.svg" alt="Add">
-              </button>
-            </div>
-            <div>
-              <button class="scale-100 hover:scale-125 transition-transform duration-100">
-                <div class="w-8 h-8 rounded-full -translate-x-1 -translate-y-1 bg-white opacity-0 hover:opacity-20 absolute"></div>
-                <img class="w-6 h-6" src="/plus-circle.svg" alt="Add">
-              </button>
-            </div>
-            <div>
-              <button class="scale-100 hover:scale-125 transition-transform duration-100">
-                <div class="w-8 h-8 rounded-full -translate-x-1 -translate-y-1 bg-white opacity-0 hover:opacity-20 absolute"></div>
-                <img class="w-6 h-6" src="/plus-circle.svg" alt="Add">
-              </button>
-            </div>
-            <div>
-              <button class="scale-100 hover:scale-125 transition-transform duration-100">
-                <div class="w-8 h-8 rounded-full -translate-x-1 -translate-y-1 bg-white opacity-0 hover:opacity-20 absolute"></div>
-                <img class="w-6 h-6" src="/plus-circle.svg" alt="Add">
-              </button>
-            </div>
-            <div>
-              <button class="scale-100 hover:scale-125 transition-transform duration-100">
-                <div class="w-8 h-8 rounded-full -translate-x-1 -translate-y-1 bg-white opacity-0 hover:opacity-20 absolute"></div>
-                <img class="w-6 h-6" src="/plus-circle.svg" alt="Add">
-              </button>
-            </div>
-            <div>
-              <button class="scale-100 hover:scale-125 transition-transform duration-100">
-                <div class="w-8 h-8 rounded-full -translate-x-1 -translate-y-1 bg-white opacity-0 hover:opacity-20 absolute"></div>
-                <img class="w-6 h-6" src="/plus-circle.svg" alt="Add">
-              </button>
-            </div>
-            <div>
-              <button class="scale-100 hover:scale-125 transition-transform duration-100">
-                <div class="w-8 h-8 rounded-full -translate-x-1 -translate-y-1 bg-white opacity-0 hover:opacity-20 absolute"></div>
-                <img class="w-6 h-6" src="/plus-circle.svg" alt="Add">
-              </button>
-            </div>
-            <div>
-              <button class="scale-100 hover:scale-125 transition-transform duration-100">
-                <div class="w-8 h-8 rounded-full -translate-x-1 -translate-y-1 bg-white opacity-0 hover:opacity-20 absolute"></div>
-                <img class="w-6 h-6" src="/plus-circle.svg" alt="Add">
-              </button>
-            </div>
-            <div>
-              <button class="scale-100 hover:scale-125 transition-transform duration-100">
-                <div class="w-8 h-8 rounded-full -translate-x-1 -translate-y-1 bg-white opacity-0 hover:opacity-20 absolute"></div>
-                <img class="w-6 h-6" src="/plus-circle.svg" alt="Add">
-              </button>
-            </div>
-            <div>
-              <button class="scale-100 hover:scale-125 transition-transform duration-100">
-                <div class="w-8 h-8 rounded-full -translate-x-1 -translate-y-1 bg-white opacity-0 hover:opacity-20 absolute"></div>
-                <img class="w-6 h-6" src="/plus-circle.svg" alt="Add">
-              </button>
-            </div>
+          <div class="flex flex-col items-center text-center gap-2 pt-[10%] h-full overflow-y-auto" id="website-list">
             <div>
               <button class="scale-100 hover:scale-125 transition-transform duration-100">
                 <div class="w-8 h-8 rounded-full -translate-x-1 -translate-y-1 bg-white opacity-0 hover:opacity-20 absolute"></div>
@@ -151,7 +38,8 @@
             </div>
           </div>
         </div>
-        <div class="w-[5px] h-full bg-[#000000]"></div>
+        <div class="w-[5px] h-full bg-true-black"></div>
+        <div class="w-full h-full bg-black"></div>
       </div>
     </body>
 </html>
