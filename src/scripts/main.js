@@ -2,6 +2,13 @@ let listHeight
 let iframeHeight
 let iframeWidth
 
+let resetLCButton = document.getElementById("resetLC")
+
+resetLCButton.addEventListener('click',(e)=>{
+    e.preventDefault()
+    localStorage.clear()
+})
+
 let websiteList
 
 if(!localStorage.getItem('websites')){
