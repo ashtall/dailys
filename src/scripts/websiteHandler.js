@@ -21,7 +21,7 @@ document.querySelectorAll('.buttons').forEach((button)=>{
 
 let isDragging = false
 
-function addEventListenerToDraggables(draggable) {
+const addEventListenerToDraggables = (draggable) => {
     draggable.addEventListener("dragstart", () => {
         draggable.classList.add("opacity-50", "dragging");
         draggable.querySelectorAll(".trash").forEach((button)=>{button.classList.add("hidden")})
@@ -35,13 +35,7 @@ function addEventListenerToDraggables(draggable) {
     });
 
     draggable.addEventListener("mouseenter", () => {
-        let trash = draggable.querySelectorAll(".trash");
-        if (!isDragging){
-            trash.forEach((button)=>{
-                button.classList.remove("opacity-0")
-                button.classList.add("opacity-100");
-            })
-        }
+        
     });
 
     draggable.addEventListener("mouseleave", () => {

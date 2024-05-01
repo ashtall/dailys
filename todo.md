@@ -1,8 +1,5 @@
 # TODO
 
-- [x] add website
-- [x] edit website
-- [x] delete website
 - [ ] navbar
 - [ ] footer
 - [ ] website icon

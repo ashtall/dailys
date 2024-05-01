@@ -14,7 +14,8 @@ export default {
       'true-black': '#000000',
       'black': '#1C1C1C',
       'yellow': '#E2E200',
-      'purple': '#2500E3',
+      'purple': '#4c1d95',
+      'light-purple': '#7c3aed',
       'white': "#FFFFFF"
     }
   },
