@@ -75,7 +75,6 @@ let isDragging = false
 
 const setButtonBG = (draggable) => {
     const buttons = draggable.querySelectorAll(".button")
-    console.log(buttons)
     buttons.forEach((button)=>{
         const bg = button.querySelector('.button-bg')
         button.addEventListener('mouseenter',()=>{
@@ -89,52 +88,52 @@ const setButtonBG = (draggable) => {
     })
 }
 
+
 const deleteWebsite = (e) =>{
     e.target.closest('.draggable').remove()
 }
 
 const linkOutWebsite = (e) =>{
+    console.log(e.target.closest('.draggable'))
     const website =  e.target.closest('.draggable').querySelector('.mainButton').id
     window.open(website,'_blank')
 }
 
-const setDraggables = () => {
-    let draggables = document.querySelectorAll('.draggable')
-    draggables.forEach((draggable)=>{
-        draggable.addEventListener('dragstart',()=>{
-            enableOrDisableOptions(draggable,0)
-            draggable.classList.add('dragging')
-            const options = draggable.querySelector('.options')
-            options.classList.add('hidden')
-            isDragging = true
-        })
-
-        draggable.addEventListener('dragend',()=>{
-            draggable.classList.remove('dragging')
-            const options = draggable.querySelector('.options')
-            options.classList.remove('hidden')
-            isDragging = false
-        })
-
-        draggable.addEventListener("mouseenter", () => {
-            if (!isDragging){
-                enableOrDisableOptions(draggable,1)
-            }
-        });
-    
-        draggable.addEventListener("mouseleave", () => {
-            if (!isDragging){
-                enableOrDisableOptions(draggable,0)
-            }
-        });
-
-        setButtonBG(draggable)
-        draggable.querySelector('.delete').addEventListener('click',(e)=>{deleteWebsite(e)})
-        draggable.querySelector('.link').addEventListener('click',(e)=>{linkOutWebsite(e)})
+const setDraggable = (draggable) => {
+    draggable.addEventListener('dragstart',()=>{
+        enableOrDisableOptions(draggable,0)
+        draggable.classList.add('dragging')
+        const options = draggable.querySelector('.options')
+        options.classList.add('hidden')
+        isDragging = true
     })
+
+    draggable.addEventListener('dragend',()=>{
+        draggable.classList.remove('dragging')
+        const options = draggable.querySelector('.options')
+        options.classList.remove('hidden')
+        isDragging = false
+    })
+
+    draggable.addEventListener("mouseenter", () => {
+        if (!isDragging){
+            enableOrDisableOptions(draggable,1)
+        }
+    });
+
+    draggable.addEventListener("mouseleave", () => {
+        if (!isDragging){
+            enableOrDisableOptions(draggable,0)
+        }
+    });
+
+    setButtonBG(draggable)
+    draggable.querySelector('.deleteButton').addEventListener('click',(e)=>{deleteWebsite(e)})
+    draggable.querySelector('.linkButton').addEventListener('click',(e)=>{linkOutWebsite(e)})
 }
 
-setDraggables()
+let draggables = document.querySelectorAll('.draggable')
+draggables.forEach((draggable)=>{setDraggable(draggable)})
 
 const enableOrDisableOptions = (draggable,onOff) =>{
     const options = draggable.querySelector('.options')
@@ -158,11 +157,19 @@ const nameInput = document.querySelector('#nameInput')
 const websiteInput = document.querySelector('#websiteInput')
 const doneButton = document.querySelector('#doneButton')
 
+document.addEventListener("click", function(event) {
+    const clickedDiv = event.target;
+
+    console.log("Clicked div:", clickedDiv);
+});
+
 addButton.addEventListener('click',()=>{
     popUpAddWebsite()
 })
 
 const popUpAddWebsite = () => {
+    nameInput.value = ""
+    websiteInput.value = ""
     screen.classList.add('blur-sm')
     addWebsiteDiv.classList.remove('hidden')
     addWebsiteDiv.classList.remove('opacity-0')
@@ -193,10 +200,21 @@ doneButton.addEventListener('click',()=>{
 })
 
 const submitAddWebsite = () => {
+    if (nameInput.value.trim() == "" || websiteInput.value.trim() == "") return
+    createDraggable(nameInput.value,websiteInput.value)
     popDownAddWebsite()
-    createDraggable()
 }
 
+const template = document.querySelector(".template")
 const createDraggable = (name,link) => {
-
+    const clone = template.cloneNode(true)
+    clone.classList.remove("template", "hidden")
+    const nameDiv = clone.querySelector('.name')
+    const linkDiv = clone.querySelector('.link')
+    nameDiv.innerHTML = name
+    linkDiv.id = link
+    websiteListEle.appendChild(clone)
+    setDraggable(clone)
+    setAddToEnd()
 }
+

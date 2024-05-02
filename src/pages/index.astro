@@ -33,20 +33,20 @@
             <div class="bg-true-black w-full h-[5px]"></div>
             <div class="pt-[10%] h-full" >
               <div class="flex flex-col items-center gap-2 overflow-y-auto" id="website-list">
-                <div class="draggable w-[90%] h-10 relative bg-light-purple rounded-lg border-2 border-true-black hover:border-white cursor-pointer" 
+                <div class="draggable template w-[90%] h-10 relative bg-light-purple rounded-lg border-2 border-true-black hover:border-white cursor-pointer" 
                 draggable="true"
                 >
-                  <button type="button" class="mainButton w-full h-full" onclick="" id="https://globle-game.com/">
-                    <p class="text-center text-white">G</p>
+                  <button type="button" class="mainButton link w-full h-full" onclick="" id="https://globle-game.com/">
+                    <p class="name text-center text-white">G</p>
                   </button>
-                  <div class="options absolute top-1/2 -translate-y-2.5 right-2 opacity-0 transition-opacity duration-50">
-                      <button type="button" class="button link w-5 mx-1 hover:scale-125 transition-all duration-100">
-                        <img src="/link-out.svg" alt="link">
-                        <div class="button-bg absolute -translate-x-1 -translate-y-6 w-7 h-7 rounded-full opacity-0 bg-white"></div>
-                      </button>
-                      <button type="button" class="button delete w-5 hover:scale-125">
-                        <img src="/trash.svg" alt="delete">
-                        <div class="button-bg absolute -translate-x-1 -translate-y-6 w-7 h-7 rounded-full opacity-0 bg-white"></div>
+                  <div class="options absolute top-1/2 -translate-y-4 right-0 opacity-0 transition-opacity duration-100">
+                    <button type="button" class="button linkButton w-8 h-8 right-8 absolute transition-all duration-100 hover:scale-125 z-10">
+                      <img src="/link-out.svg" alt="link" class="w-5 translate-x-1.5">
+                      <div class="button-bg absolute translate-x-0.5 -translate-y-6 w-7 h-7 rounded-full opacity-0 bg-white -z-10"></div>
+                    </button>
+                      <button type="button" class="button deleteButton w-8 h-8 hover:scale-125 transition-all duration-100 z-10">
+                        <img src="/trash.svg" alt="delete" class="w-5 translate-x-1.5">
+                        <div class="button-bg absolute translate-x-0.5 -translate-y-6 w-7 h-7 rounded-full opacity-0 bg-white -z-10"></div>
                       </button>
                   </div>
                 </div>
@@ -61,7 +61,9 @@
             </div>
           </div>
           <div class="w-[5px] h-full bg-true-black"></div>
-          <div class="w-full h-full bg-black"></div>
+          <div class="iframeDiv w-full h-full bg-black">
+            <iframe src="" id="websiteiframe"></iframe>
+          </div>
         </div>
       </div>
 
