@@ -5,9 +5,10 @@ export default {
     extend: {
       gridTemplateRows: {
         'auto-grid-rows': '75px 5px auto',
+        'auto-2': '10% auto'
       },
       gridTemplateColumns: {
-        'auto-grid-cols': '40% 5px auto'
+        'auto-grid-cols': '40% 5px auto',
       }
     },
     colors: {

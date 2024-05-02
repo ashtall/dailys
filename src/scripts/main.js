@@ -34,7 +34,7 @@ const setWebsites = () =>{
 
 let navbarBgEle = document.getElementById('navbar-bg')
 const websiteListEle = document.getElementById('website-list')
-const addButton = websiteListEle.querySelector(".addButton")
+const addButtonDiv = websiteListEle.querySelector(".addButtonDiv")
 
 websiteListEle.addEventListener("dragover", (e) => {
     e.preventDefault();
@@ -68,7 +68,7 @@ function getDragAfterElement(container, y) {
 }
 
 function setAddToEnd(){
-    websiteListEle.appendChild(addButton)
+    websiteListEle.appendChild(addButtonDiv)
 }
 
 let isDragging = false
@@ -102,13 +102,17 @@ const setDraggables = () => {
     let draggables = document.querySelectorAll('.draggable')
     draggables.forEach((draggable)=>{
         draggable.addEventListener('dragstart',()=>{
-            draggable.classList.add('dragging')
-            isDragging = true
             enableOrDisableOptions(draggable,0)
+            draggable.classList.add('dragging')
+            const options = draggable.querySelector('.options')
+            options.classList.add('hidden')
+            isDragging = true
         })
 
         draggable.addEventListener('dragend',()=>{
             draggable.classList.remove('dragging')
+            const options = draggable.querySelector('.options')
+            options.classList.remove('hidden')
             isDragging = false
         })
 
@@ -144,4 +148,55 @@ const enableOrDisableOptions = (draggable,onOff) =>{
             options.classList.remove('opacity-100')
             break
     }
+}
+
+const addButton = document.querySelector('.addButton')
+const screen = document.querySelector('.screen')
+const addWebsiteDiv = document.querySelector('.addWebsite')
+
+const nameInput = document.querySelector('#nameInput')
+const websiteInput = document.querySelector('#websiteInput')
+const doneButton = document.querySelector('#doneButton')
+
+addButton.addEventListener('click',()=>{
+    popUpAddWebsite()
+})
+
+const popUpAddWebsite = () => {
+    screen.classList.add('blur-sm')
+    addWebsiteDiv.classList.remove('hidden')
+    addWebsiteDiv.classList.remove('opacity-0')
+    addWebsiteDiv.classList.add('opacity-100')
+    nameInput.focus()
+}
+
+const popDownAddWebsite = () => {
+    screen.classList.remove('blur-sm')
+    addWebsiteDiv.classList.add('hidden','opacity-0')
+    addWebsiteDiv.classList.remove('opacity-100')
+}
+
+nameInput.addEventListener('keydown',(e)=>{
+    if(e.key == "Enter"){
+        websiteInput.focus()
+    }
+})
+
+websiteInput.addEventListener('keydown',(e)=>{
+    if(e.key == "Enter"){
+        submitAddWebsite()
+    }
+})
+
+doneButton.addEventListener('click',()=>{
+    submitAddWebsite()
+})
+
+const submitAddWebsite = () => {
+    popDownAddWebsite()
+    createDraggable()
+}
+
+const createDraggable = (name,link) => {
+
 }
