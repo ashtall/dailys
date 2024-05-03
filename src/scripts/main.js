@@ -287,25 +287,16 @@ const createDraggable = (name,link,newDraggable) => {
     }
 }
 
-const resetOrderOfDraggablesInStorage = () =>{
-    if(localStorage.getItem('websites')){
-        websiteList = localStorage.getItem('websites')
-        let websites = []
-        console.log(Object.keys(websiteList))
-    }
-}
-
 window.addEventListener('load',(e)=>{
-    resetOrderOfDraggablesInStorage()
     setWebsiteList()
     if(websiteList){
-        console.log(websiteList)
+        let websites = Object.entries(websiteList)
         for(let i = 0;i<Object.keys(websiteList).length;i++){
-            console.log(websiteList[i])
-            createDraggable(websiteList[i].name,websiteList[i].link,false)
+            createDraggable(websites[i][1].name,websites[i][1].link,false)
         }
     }
 })
+
 document.addEventListener('keydown',(e)=>{
     if(e.key === 'Escape'){
         if(ispoppedUp){
@@ -313,11 +304,3 @@ document.addEventListener('keydown',(e)=>{
         }
     }
 })
-
-import helmet from "helmet";
-const app = express();
-app.use(
-    helmet({
-        xFrameOptions: { action: "sameorigin" },
-    }),
-);
