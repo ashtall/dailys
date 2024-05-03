@@ -2,19 +2,6 @@ const sleep = (ms) => {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-let resetLCButton = document.getElementById("resetLC")
-resetLCButton.addEventListener('click',(e)=>{
-    e.preventDefault()
-    localStorage.clear()
-})
-
-let add10Button = document.getElementById('add10')
-add10Button.addEventListener('click',()=>{
-    for(let i=0;i<10;i++){
-        addWebsite('Wordle',"https://www.nytimes.com/games/wordle/index.html")
-    }
-})
-
 let websiteList
 
 const setWebsiteList = () => {
