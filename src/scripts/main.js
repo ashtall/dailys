@@ -33,10 +33,10 @@ const addWebsite = (name,link) => {
         websiteList = JSON.parse(localStorage.getItem('websites'))
     }
     websiteList[Object.keys(websiteList).length] = {name:name,link:link}
-    setWebsites()
+    setWebsitesInStorage()
 }
 
-const setWebsites = () =>{
+const setWebsitesInStorage = () =>{
     localStorage.setItem('websites',JSON.stringify(websiteList))
     console.log(JSON.parse(localStorage.getItem('websites')))
 }
@@ -103,12 +103,13 @@ const deleteWebsite = (e) =>{
     const name = draggable.querySelector('.name').innerHTML
     const link = draggable.querySelector('.link').id
     websiteList = JSON.parse(localStorage.getItem('websites'))
-    for(let i = 0;i<websiteList.length; i++){
-        if(websiteList[i] == {name:name,link:link}) {
+    for(let i = 0;i<Object.keys(websiteList).length; i++){
+        if(JSON.stringify(websiteList[i]) == JSON.stringify({name:name,link:link})) {
             delete websiteList[i]
             break
         }
     }
+    setWebsitesInStorage()
     e.target.closest('.draggable').remove()
 }
 
@@ -135,6 +136,7 @@ const setDraggable = (draggable) => {
         draggable.classList.remove('dragging')
         const options = draggable.querySelector('.options')
         options.classList.remove('hidden')
+        setOrderOfDraggablesInStorage()
         isDragging = false
     })
 
