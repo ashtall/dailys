@@ -13,7 +13,7 @@
         <title>Dailys</title>
     </head>
     <body class="bg-black">
-      <div class="screen absolute w-full h-full grid grid-rows-auto-grid-rows grid-cols-auto-grid-cols overflow-hidden transition-all duration-300">
+      <div class="screen absolute w-full h-full grid grid-rows-auto-grid-rows overflow-hidden transition-all duration-300">
         <div class="bg-yellow w-[100%] col-span-3">
           <div class="flex flex-row -mt-1">
             <h1 class="font-bold text-[50px] ml-3 italic">Dailys</h1>
@@ -21,14 +21,14 @@
           </div>
         </div>
   
-        <button class="absolute top-[5.5rem] translate-x-2">
+        <button class="listButton absolute top-[5.5rem] translate-x-2 z-10">
           <div class="w-10 h-10 rounded-full -translate-x-1 -translate-y-1 bg-white opacity-0 hover:opacity-20 transition-opacity duration-200 absolute"></div>
           <img class="w-8 h-8" src="/list.svg" alt="list">
         </button>
-  
+
         <div class="bg-true-black w-[100%] h-[5px] col-span-3"></div>
-        <div class="col-span-3 flex flex-row">
-          <div class="w-[40%] max-w-[300px] h-full bg-purple flex flex-col" id="navbar-bg">
+        <div class="col-span-3 flex flex-row main-area">
+          <div class="w-[40%] max-w-[300px] h-full bg-purple flex flex-col transition-all duration-200 " id="navbar">
             <h2 class="text-center text-white text-2xl py-2">List</h2>
             <div class="bg-true-black w-full h-[5px]"></div>
             <div class="pt-[10%] h-full" >
@@ -61,9 +61,9 @@
             </div>
           </div>
 
-          <div class="w-[5px] h-full bg-true-black"></div>
+          <div class="w-[5px] h-full bg-true-black navbar-line transition-all duration-200"></div>
 
-          <div class="iframeDiv w-full h-full bg-black">
+          <div class="iframeDiv w-full h-full bg-black col-span-3">
             <iframe src="" id="iframe" class="w-full h-full" ></iframe>
           </div>
         </div>

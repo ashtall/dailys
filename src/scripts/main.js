@@ -304,3 +304,28 @@ document.addEventListener('keydown',(e)=>{
         }
     }
 })
+
+const listButton = document.querySelector('.listButton')
+const navbar = document.querySelector('#navbar')
+const navbarLine = document.querySelector('.navbar-line')
+const iframe = document.querySelector('#iframe')
+const iframeDiv = document.querySelector('.iframeDiv')
+const mainArea = document.querySelector('.main-area')
+let navbarOpened = false
+listButton.addEventListener('click',async()=>{
+    navbarOpened = !navbarOpened
+    if(navbarOpened){
+        // navbar.classList.add('-translate-x-80')
+        // navbarLine.classList.add('-translate-x-80')
+        // await sleep(200)
+        navbar.classList.add('hidden')
+        navbarLine.classList.add('hidden')
+    }else if(!navbarOpened){
+        navbar.classList.remove('hidden')
+        navbarLine.classList.remove('hidden')
+        await sleep(200)
+        // navbar.classList.remove('-translate-x-80')
+        // navbarLine.classList.remove('-translate-x-80')
+    }
+})
+
