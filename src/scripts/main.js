@@ -84,6 +84,20 @@ const setButtonBG = (draggable) => {
     })
 }
 
+const closeButton = document.querySelector('.closeButton')
+const bg = closeButton.querySelector('.button-bg')
+closeButton.addEventListener('mouseenter',()=>{
+    bg.classList.add("opacity-25")
+    bg.classList.remove('opacity-0')
+})
+closeButton.addEventListener('mouseleave',()=>{
+    bg.classList.add("opacity-0")
+    bg.classList.remove('opacity-25')
+})
+closeButton.addEventListener('click',(e)=>{
+    popDownAddWebsite()
+})
+
 const setOrderOfDraggablesInStorage = () =>{
     const draggables = websiteListEle.querySelectorAll('.draggable:not(.template)')
     websiteList = {}
@@ -184,19 +198,21 @@ const doneButton = document.querySelector('#doneButton')
 addButton.addEventListener('click',()=>{
     popUpAddWebsite()
 })
-
+let ispoppedUp = false
 const popUpAddWebsite = async () => {
+    ispoppedUp = true
     nameInput.value = ""
     websiteInput.value = ""
     screen.classList.add('blur-sm')
     addWebsiteDiv.classList.remove('hidden')
-    await sleep(100)
+    await sleep(10)
     addWebsiteDiv.classList.add('opacity-100')
     addWebsiteDiv.classList.remove('opacity-0')
     nameInput.focus()
 }
 
-const popDownAddWebsite = async () => {
+const popDownAddWebsite = () => {
+    ispoppedUp = false
     screen.classList.remove('blur-sm')
     addWebsiteDiv.classList.add('opacity-0')
     addWebsiteDiv.classList.remove('opacity-100')
@@ -274,7 +290,16 @@ window.addEventListener('load',(e)=>{
     if(websiteList){
         console.log(websiteList)
         for(let i = 0;i<Object.keys(websiteList).length;i++){
+            console.log(websiteList[i])
             createDraggable(websiteList[i].name,websiteList[i].link,false)
+        }
+    }
+})
+
+document.addEventListener('keydown',(e)=>{
+    if(e.key === 'Escape'){
+        if(ispoppedUp){
+            popDownAddWebsite()
         }
     }
 })
