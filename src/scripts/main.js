@@ -97,6 +97,17 @@ const setButtonBG = (draggable) => {
     })
 }
 
+const setOrderOfDraggablesInStorage = () =>{
+    const draggables = websiteListEle.querySelectorAll('.draggable:not(.template)')
+    websiteList = {}
+    for(let i=0;i<draggables.length;i++){
+        const name = draggables[i].querySelector('.name').innerHTML
+        const link = draggables[i].querySelector('.link').id
+        websiteList[i] = {name:name,link:link}
+    }
+    setWebsitesInStorage()
+}
+
 
 const deleteWebsite = (e) =>{
     const draggable = e.target.closest('.draggable')
