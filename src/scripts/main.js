@@ -25,7 +25,6 @@ const addWebsite = (name,link) => {
 
 const setWebsitesInStorage = () =>{
     localStorage.setItem('websites',JSON.stringify(websiteList))
-    console.log(JSON.parse(localStorage.getItem('websites')))
 }
 
 const navbarBgEle = document.getElementById('navbar-bg')
@@ -122,6 +121,10 @@ const deleteWebsite = (e) =>{
         }
     }
     setWebsitesInStorage()
+    const iframe = document.querySelector('#iframe')
+    if(iframe.src == window.location.href+link){
+        iframe.src = ""
+    }
     e.target.closest('.draggable').remove()
 }
 
@@ -274,7 +277,6 @@ const createDraggable = (name,link,newDraggable) => {
                     isDuplicate = true
                 }  
             }
-            console.log(isDuplicate)
             if(!isDuplicate || Object.keys(websiteList).length < 1){
                 addWebsite(name,link)
                 createDraggableDiv(name,link)
@@ -285,7 +287,16 @@ const createDraggable = (name,link,newDraggable) => {
     }
 }
 
+const resetOrderOfDraggablesInStorage = () =>{
+    if(localStorage.getItem('websites')){
+        websiteList = localStorage.getItem('websites')
+        let websites = []
+        console.log(Object.keys(websiteList))
+    }
+}
+
 window.addEventListener('load',(e)=>{
+    resetOrderOfDraggablesInStorage()
     setWebsiteList()
     if(websiteList){
         console.log(websiteList)
@@ -295,7 +306,6 @@ window.addEventListener('load',(e)=>{
         }
     }
 })
-
 document.addEventListener('keydown',(e)=>{
     if(e.key === 'Escape'){
         if(ispoppedUp){
@@ -303,3 +313,11 @@ document.addEventListener('keydown',(e)=>{
         }
     }
 })
+
+import helmet from "helmet";
+const app = express();
+app.use(
+    helmet({
+        xFrameOptions: { action: "sameorigin" },
+    }),
+);
