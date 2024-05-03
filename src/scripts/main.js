@@ -221,12 +221,33 @@ doneButton.addEventListener('click',()=>{
 })
 
 const submitAddWebsite = () => {
-    if (nameInput.value.trim() == "" || websiteInput.value.trim() == "") return
+    if (nameInput.value.trim() == "" || websiteInput.value.trim() == "") {
+        if(nameInput.value.trim() == "" && websiteInput.value.trim() == ""){
+            nameInput.focus()
+        }else if (websiteInput.value.trim() == ""){
+            websiteInput.focus()
+        }else if(nameInput.value.trim() == ""){
+            nameInput.focus()
+        }
+        return
+    }
     createDraggable(nameInput.value,websiteInput.value,true)
     popDownAddWebsite()
 }
 
 const template = document.querySelector(".template")
+const createDraggableDiv = (name,link) =>{
+    const clone = template.cloneNode(true)
+    clone.classList.remove("template", "hidden")
+    const nameDiv = clone.querySelector('.name')
+    const linkDiv = clone.querySelector('.link')
+    nameDiv.innerHTML = name
+    linkDiv.id = link
+    websiteListEle.appendChild(clone)
+    setDraggable(clone)
+    setAddToEnd()
+}
+
 const createDraggable = (name,link,newDraggable) => {
     switch(newDraggable){
         case true:
@@ -240,37 +261,15 @@ const createDraggable = (name,link,newDraggable) => {
             console.log(isDuplicate)
             if(!isDuplicate || Object.keys(websiteList).length < 1){
                 addWebsite(name,link)
-                const clone = template.cloneNode(true)
-                clone.classList.remove("template", "hidden")
-                const nameDiv = clone.querySelector('.name')
-                const linkDiv = clone.querySelector('.link')
-                nameDiv.innerHTML = name
-                linkDiv.id = link
-                websiteListEle.appendChild(clone)
-                setDraggable(clone)
-                setAddToEnd()
+                createDraggableDiv(name,link)
             }
             break
         case false:
-            const clone = template.cloneNode(true)
-            clone.classList.remove("template", "hidden")
-            const nameDiv = clone.querySelector('.name')
-            const linkDiv = clone.querySelector('.link')
-            nameDiv.innerHTML = name
-            linkDiv.id = link
-            websiteListEle.appendChild(clone)
-            setDraggable(clone)
-            setAddToEnd()
+            createDraggableDiv(name,link)
     }
 }
 
-const iframeDiv = document.querySelector('.iframeDiv')
-const iframe = document.getElementById('iframe')
-
 window.addEventListener('load',(e)=>{
-    
-})
-window.onload = (event) => {
     setWebsiteList()
     if(websiteList){
         console.log(websiteList)
@@ -278,4 +277,4 @@ window.onload = (event) => {
             createDraggable(websiteList[i].name,websiteList[i].link,false)
         }
     }
-};
+})
