@@ -16,7 +16,7 @@
       <div class="screen absolute w-full h-full grid grid-rows-auto-grid-rows grid-cols-auto-grid-cols overflow-hidden transition-all duration-300">
         <div class="bg-yellow w-[100%] flex flex-row col-span-3">
           <h1 class="font-bold text-[50px] ml-3 italic">Dailys</h1>
-          <h6 class="self-end pb-[2px] pl-[7px] italic text-nowrap"><p>by [ash]</p></h6>
+          <h6 class="self-end pb-[2px] pl-[7px] italic text-nowrap font-normal"><p>by [ash]</p></h6>
           <button class="bg-black rounded-lg h-8 w-40 self-center ml-5" id="resetLC"><p class="text-white">Reset Local Storage</p></button>
           <button class="bg-black rounded-lg h-8 w-40 self-center ml-5" id="add10"><p class="text-white">Add 10</p></button>
         </div>
@@ -33,11 +33,11 @@
             <div class="bg-true-black w-full h-[5px]"></div>
             <div class="pt-[10%] h-full" >
               <div class="flex flex-col items-center gap-2 overflow-y-auto" id="website-list">
-                <div class="draggable template w-[90%] h-10 relative bg-light-purple rounded-lg border-2 border-true-black hover:border-white cursor-pointer" 
+                <div class="draggable template hidden w-[90%] h-10 relative bg-light-purple rounded-lg border-2 border-true-black hover:border-white cursor-pointer" 
                 draggable="true"
                 >
-                  <button type="button" class="mainButton link w-full h-full" onclick="" id="https://globle-game.com/">
-                    <p class="name text-center text-white">G</p>
+                  <button type="button" class="mainButton link w-full h-full" onclick="" id="">
+                    <p class="name text-center text-white"></p>
                   </button>
                   <div class="options absolute top-1/2 -translate-y-4 right-0 opacity-0 transition-opacity duration-100">
                     <button type="button" class="button linkButton w-8 h-8 right-8 absolute transition-all duration-100 hover:scale-125 z-10">
@@ -60,14 +60,16 @@
               
             </div>
           </div>
+
           <div class="w-[5px] h-full bg-true-black"></div>
+
           <div class="iframeDiv w-full h-full bg-black">
-            <iframe src="" id="websiteiframe"></iframe>
+            <iframe src="" id="iframe" class="w-full h-full"></iframe>
           </div>
         </div>
       </div>
 
-      <div class="addWebsite opacity-0 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40%] h-[40%] bg-purple rounded-lg border-4 transition-all duration-1000">
+      <div class="addWebsite opacity-0 hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40%] h-[40%] bg-purple rounded-lg border-4 transition-all duration-200">
         <div>
           <p class="text-white text-center text-4xl mt-2">Add Website</p>
           <div class="bg-true-black w-full h-[4px] mt-2"></div>
